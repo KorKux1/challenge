@@ -1,5 +1,5 @@
 /**
-* Brief description of the class here.
+* Class that represents a business item.
 */
 class Item {
     name: string;

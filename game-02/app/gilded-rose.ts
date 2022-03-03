@@ -2,7 +2,7 @@ import Item from "./item";
 import { qualityValues } from './quality-config';
 
 /**
-* Brief description of the class here.
+* Class that represents the product management system
 */
 class GildedRose {
     items: Array<Item>;
@@ -10,7 +10,10 @@ class GildedRose {
     constructor(items = [] as Array<Item>) {
         this.items = items;
     }
-
+    /** 
+    * Update items quality by the sellIn date and the item type (item.name)
+    * @return {Array<Item>} items with quality updated.
+    */
     updateQuality() {
         for (const item of this.items) {
             if (item.name !== "Sulfuras, Hand of Ragnaros") {
@@ -25,10 +28,20 @@ class GildedRose {
         return this.items;
     }
 
+    /** 
+    * Reduce item sellIn value.
+    * @param {Item} item - item to reduce sellIn.
+    * @return {undefined}
+    */
     reduceItemSellIn(item: Item) {
         item.sellIn -= 1
     }
 
+    /** 
+    * Update item quality given specific conditions.
+    * @param {Item} item - item to reduce quality.
+    * @return {undefined}
+    */
     updateItemQuality(item: Item) {
         let qualityValue =  qualityValues[item.name] ? qualityValues[item.name] : -1;
 
@@ -48,6 +61,11 @@ class GildedRose {
         }
     }
 
+    /** 
+    * Update BackstagePasses item quality given specific conditions.
+    * @param {Item} item - item to reduce quality.
+    * @return {undefined}
+    */
     updateBackstagePassesQuality(item: Item) {
         let itemQuality = 0;
 
